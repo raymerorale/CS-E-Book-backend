@@ -75,7 +75,7 @@ namespace CseBookApi.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<UserAnswer>> PostUserAnswer(UserAnswerDTO userAnswerDTO)
+        public async Task<ActionResult<UserAnswer>> PostUserAnswer(UserAnswer userAnswer)
         {
             _context.UserAnswers.Add(userAnswer);
             await _context.SaveChangesAsync();
@@ -111,6 +111,6 @@ namespace CseBookApi.Controllers
                 Content = userAnswer.Content,
                 QuestionCode = userAnswer.QuestionCode,
                 UserId = userAnswer.UserId
-            }
+            };
     }
 }
