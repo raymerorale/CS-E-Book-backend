@@ -15,6 +15,15 @@
 4. u: gabon; p: password; grade_level: "1st"; course: "CPE"; -----> `VALID`
 5. u: user; p: user; grade_level: "1st"; course: "IT"; -----> `INVALID`
 
+### To see SQLite db contents:
+
+1. Download SQLite DB Browser: https://sqlitebrowser.org/dl/
+2. Launch SQLite DB Browser and open LocalDatabase.db
+
+### Note:
+
+1. For future plans, if we want to update SQLite to SQL Server ----> Eazy Peazy XD
+
 ---
 
 # CseBook
