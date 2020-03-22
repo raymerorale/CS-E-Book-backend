@@ -1,3 +1,20 @@
+# CseBook-v2-with-auth
+
+### To run:
+
+1. Navigate to CseBookApi-v2-with-auth
+2. Execute `dotnet run`
+3. API will run at http://localhost:4000
+4. Test VALID and INVALID sample data on POSTMAN: http://localhost:4000/login
+5. Try out other username and password pair on login that is not on the sample data
+
+### Sample data
+1. u: perea; p: password; grade_level: "1st"; course: "CPE"; -----> `VALID`
+2. u: mediola; p: password; grade_level: "1st"; course: "CPE"; -----> `VALID`
+3. u: orale; p: password; grade_level: "1st"; course: "CPE"; -----> `VALID`
+4. u: gabon; p: password; grade_level: "1st"; course: "CPE"; -----> `VALID`
+5. u: user; p: user; grade_level: "1st"; course: "IT"; -----> `INVALID`
+
 ### REST API
 in json format.
 |        | API	             | Description	           | Request body |	Response body        |
