@@ -15,6 +15,10 @@
 4. u: gabon; p: password; grade_level: "1st"; course: "CPE"; -----> `VALID`
 5. u: user; p: user; grade_level: "1st"; course: "IT"; -----> `INVALID`
 
+---
+
+# CseBook
+
 ### REST API
 in json format.
 |        | API	             | Description	           | Request body |	Response body        |
