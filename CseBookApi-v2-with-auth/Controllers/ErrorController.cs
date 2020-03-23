@@ -9,10 +9,10 @@ namespace WebApi.Controllers
     [ApiController]
     public class ErrorController : ControllerBase
     {
-        [HttpGet("/error")]
+        [HttpPost("/error")]
         public IActionResult Error() => Problem();
 
-        [HttpGet("/error-local-development")]
+        [HttpPost("/error-local-development")]
         public IActionResult ErrorLocalDevelopment(
             [FromServices] IWebHostEnvironment webHostEnvironment)
         {
