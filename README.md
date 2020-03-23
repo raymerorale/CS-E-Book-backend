@@ -5,8 +5,9 @@
 1. Navigate to CseBookApi-v2-with-auth
 2. Execute `dotnet run`
 3. API will run at http://localhost:4000
-4. Test VALID and INVALID sample data on POSTMAN: http://localhost:4000/login
+4. Test VALID and INVALID sample data on POSTMAN: http://localhost:4000/user/authenticate
 5. Try out other username and password pair on login that is not on the sample data
+6. For now, API returns 500 for every INVALID request. Error handling ongoing... :)
 
 ### Sample data
 1. u: perea; p: password; grade_level: "1st"; course: "CPE"; -----> `VALID`
