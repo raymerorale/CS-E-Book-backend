@@ -37,13 +37,15 @@
     - PUT user/{id}
     - DELETE user/{id}
     - POST user/logout
-  - Chapter Progress:
-    - POST progress
-    - PUT progress/{id}
-    - GET progress
-    - GET progress/{id}  
+  - Chapter
+    - ???
+  - ReadStatus:
+    - POST read_status
+    - PUT read_status/{id}
+    - GET read_status
+    - GET read_status/{id}
   - Question
-    - ??
+    - ???
   - UserAnswer:
     - POST user_answer/{user_id}/{question_id} (includes send to teacher - optional)
     - PUT user_answer/{user_id}/{question_id} (includes send to teacher - optional)
