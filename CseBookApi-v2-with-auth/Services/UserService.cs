@@ -36,12 +36,12 @@ namespace WebApi.Services
             if (user == null)
                 return null;
 
-            // check if user gradeLevel and Course are valid --> "1st" and "CPE" respectively
-            if (!VerifyYearAndCourse(user.GradeLevel, user.Course))
-                return null;
-
             // check if password is correct
             if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
+                return null;
+
+            // check if user gradeLevel and Course are valid --> "1st" and "CPE" respectively
+            if (!VerifyYearAndCourse(user.GradeLevel, user.Course))
                 return null;
 
             // authentication successful

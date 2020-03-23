@@ -13,6 +13,7 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System;
 using Microsoft.OpenApi.Models;
+using WebApi.Filters;
 
 namespace WebApi
 {
@@ -37,7 +38,8 @@ namespace WebApi
                 services.AddDbContext<DataContext, SqliteDataContext>();
 
             services.AddCors();
-            services.AddControllers();
+            services.AddControllers(options =>
+                options.Filters.Add(new HttpResponseExceptionFilter()));
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             // configure strongly typed settings objects
@@ -93,6 +95,15 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataContext dataContext)
         {
+            if (env.IsDevelopment())
+            {
+                app.UseExceptionHandler("/error-local-development");
+            }
+            else
+            {
+                app.UseExceptionHandler("/error");
+            }
+                    
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
