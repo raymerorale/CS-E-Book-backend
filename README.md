@@ -30,8 +30,8 @@
 
 - Apply correct error response code
 - Endpoints:
-  - User:
-    - POST user/authenticate (Needs polishing, and applying correct response code)
+  - User:  (Needs polishing, and applying correct response code)
+    - POST user/authenticate
     - POST user/register
     - GET user/{id}
     - PUT user/{id}
