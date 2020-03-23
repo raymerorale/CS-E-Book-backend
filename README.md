@@ -26,6 +26,30 @@
 1. Download SQLite DB Browser: https://sqlitebrowser.org/dl/
 2. Launch SQLite DB Browser and open LocalDatabase.db
 
+### TO DO:
+
+- Apply correct error response code
+- Endpoints:
+  - User:
+    - POST user/authenticate (Needs polishing, and applying correct response code)
+    - POST user/register
+    - GET user/{id}
+    - PUT user/{id}
+    - DELETE user/{id}
+    - POST user/logout
+  - Chapter Progress:
+    - POST progress
+    - PUT progress/{id}
+    - GET progress
+    - GET progress/{id}  
+  - Question
+    - ??
+  - UserAnswer:
+    - POST user_answer/{user_id}/{question_id} (includes send to teacher - optional)
+    - PUT user_answer/{user_id}/{question_id} (includes send to teacher - optional)
+    - GET user_answer/{user_id}
+    - GET user_answer/{user_id}/{question_id}
+
 ### Note:
 
 1. For future plans, if we want to update SQLite to SQL Server ----> Eazy Peazy XD
