@@ -9,6 +9,11 @@
 5. Try out other username and password pair on login that is not on the sample data
 6. For now, API returns 500 for every INVALID request. Error handling ongoing... :)
 
+### API Docs
+
+1. Open browser and navigate to: http://localhost/4000
+2. Note that other endpoints are not yet finalized.
+
 ### Sample data
 1. u: perea; p: password; grade_level: "1st"; course: "CPE"; -----> `VALID`
 2. u: mediola; p: password; grade_level: "1st"; course: "CPE"; -----> `VALID`
