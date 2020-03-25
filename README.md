@@ -7,7 +7,7 @@
 3. API will run at http://localhost:4000
 4. Test VALID and INVALID sample data on POSTMAN: http://localhost:4000/user/authenticate
 5. Try out other username and password pair on login that is not on the sample data
-6. For now, API returns 500 for every INVALID request. Error handling ongoing... :)
+6. Try out other API endpoints as well. Check API Docs for guide. :)
 
 ### API Docs
 
