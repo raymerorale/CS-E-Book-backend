@@ -30,7 +30,7 @@
 
 - Apply correct error response code, improve error handling
 - Endpoints:
-  - User:  (DONE, Needs polishing and applying correct response code)
+  - **User:  (DONE, Needs polishing and applying correct response code)**
     - POST user/authenticate ------> working :)
     - POST user/register ------> working :)
     - GET user/{id} ------> working :)
@@ -39,7 +39,7 @@
     - POST user/logout ------> working :)
   - Chapter
     - ???
-  - ReadStatus: (DONE, needs polishing and applying correct response code)
+  - **ReadStatus: (DONE, needs polishing and applying correct response code)**
     - POST readstatus ------> working :)
     - PUT readstatus/{id} ------> working :)
     - GET readstatus ------> working :)
@@ -47,7 +47,7 @@
     - DELETE readstatus/{id} ------> working :)
   - Question
     - ???
-  - Answer: (DONE, needs polishing and applying correct response code, SEND TO TEACHER NOT YET IMPLEMENTED)
+  - **Answer: (DONE, needs polishing and applying correct response code, SEND TO TEACHER NOT YET IMPLEMENTED)**
     - POST answer/{answer_id} ------> working :)
     - PUT answer/{answer_id} ------> working :)
     - GET answer ------> working :)
