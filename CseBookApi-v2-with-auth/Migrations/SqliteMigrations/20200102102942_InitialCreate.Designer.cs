@@ -69,6 +69,29 @@ namespace WebApi.Migrations.SqliteMigrations
 
                     b.ToTable("ReadStatus");
                 });
+
+            modelBuilder.Entity("WebApi.Entities.Answer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("QuestionId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("AnswerId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("AnswerContent")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Answer");
+                });
 #pragma warning restore 612, 618
         }
     }

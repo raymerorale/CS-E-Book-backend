@@ -73,18 +73,17 @@ namespace WebApi.Services
         // private helper methods
         private static void ValidateReadStatusParams(ReadStatus readStatus) {
             if (readStatus.ChapterId == 0)
-                throw new AppException("ChapterId is required.");
+                throw new AppException("chapterId is required.");
 
             if (readStatus.UserId == 0)
-                throw new AppException("UserId is required.");
+                throw new AppException("userId is required.");
 
             if (string.IsNullOrWhiteSpace(readStatus.Status))
-                throw new AppException("Status is required.");
+                throw new AppException("status is required.");
 
             string[] validStatusArray = { "ENABLED", "DISABLED", "IN PROGRESS" };
             if (!validStatusArray.Contains(readStatus.Status.ToUpper()))
-                throw new AppException("Status must be in ['ENABLED', 'DISABLED', 'IN PROGRESS' ]");
+                throw new AppException("status must be in ['ENABLED', 'DISABLED', 'IN PROGRESS' ]");
         }
-
     }
 }

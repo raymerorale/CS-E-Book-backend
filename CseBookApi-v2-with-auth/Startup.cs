@@ -85,6 +85,7 @@ namespace WebApi
             // configure DI for application services
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IReadStatusService, ReadStatusService>();
+            services.AddScoped<IAnswerService, AnswerService>();
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>

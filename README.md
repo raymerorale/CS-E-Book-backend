@@ -47,11 +47,12 @@
     - DELETE readstatus/{id} ------> working :)
   - Question
     - ???
-  - UserAnswer:
-    - POST user_answer/{user_id}/{question_id} (includes send to teacher - optional)
-    - PUT user_answer/{user_id}/{question_id} (includes send to teacher - optional)
-    - GET user_answer/{user_id}
-    - GET user_answer/{user_id}/{question_id}
+  - Answer: (DONE, needs polishing and applying correct response code, SEND TO TEACHER NOT YET IMPLEMENTED)
+    - POST answer/{answer_id} ------> working :)
+    - PUT answer/{answer_id} ------> working :)
+    - GET answer ------> working :)
+    - GET answer/{answer_id} ------> working :)
+    - DELETE answer/{answer_id} ------> working :)
 
 ### Note:
 

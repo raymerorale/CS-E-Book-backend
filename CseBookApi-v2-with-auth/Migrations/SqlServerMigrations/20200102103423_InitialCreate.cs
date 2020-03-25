@@ -40,6 +40,22 @@ namespace WebApi.Migrations.SqlServerMigrations
                 {
                     table.PrimaryKey("PK_ReadStatus", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Answer",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    QuestionId = table.Column<int>(nullable: true),
+                    AnswerId = table.Column<int>(nullable: true),
+                    AnswerContent = table.Column<string>(nullable: true),
+                    UserId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Answer", x => x.Id);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -48,6 +64,8 @@ namespace WebApi.Migrations.SqlServerMigrations
                 name: "User");
             migrationBuilder.DropTable(
                 name: "ReadStatus");
+            migrationBuilder.DropTable(
+                name: "Answer");
         }
     }
 }

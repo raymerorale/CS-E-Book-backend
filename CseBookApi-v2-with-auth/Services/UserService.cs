@@ -62,10 +62,10 @@ namespace WebApi.Services
         {
             // validation
             if (string.IsNullOrWhiteSpace(password))
-                throw new AppException("Password is required");
+                throw new AppException("password is required");
 
             if (_context.User.Any(x => x.Username == user.Username))
-                throw new AppException("Username \"" + user.Username + "\" is already taken");
+                throw new AppException("username \"" + user.Username + "\" is already taken");
 
             // user.GradeLevel = user.GradeLevel;
             // user.Course = user.Course;
@@ -94,7 +94,7 @@ namespace WebApi.Services
             {
                 // throw error if the new username is already taken
                 if (_context.User.Any(x => x.Username == userParam.Username))
-                    throw new AppException("Username " + userParam.Username + " is already taken");
+                    throw new AppException("username " + userParam.Username + " is already taken");
 
                 user.Username = userParam.Username;
             }

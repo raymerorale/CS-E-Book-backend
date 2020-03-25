@@ -1,4 +1,4 @@
-public class UserAnswer
+public class Answer
 {
     public long Id { get; set; }
     public string Content { get; set; }
