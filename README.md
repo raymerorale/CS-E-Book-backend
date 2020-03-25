@@ -28,7 +28,7 @@
 
 ### TO DO:
 
-- Apply correct error response code
+- Apply correct error response code, improve error handling
 - Endpoints:
   - User:  (DONE, Needs polishing and applying correct response code)
     - POST user/authenticate ------> working :)
