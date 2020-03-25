@@ -47,6 +47,26 @@ namespace WebApi.Migrations.SqliteMigrations
 
                     b.ToTable("Users");
                 });
+
+            modelBuilder.Entity("WebApi.Entities.ReadStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ChapterId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ReadStatus");
+                });
 #pragma warning restore 612, 618
         }
     }

@@ -36,6 +36,11 @@ namespace WebApi.Services
 
         public ReadStatus Create(ReadStatus readStatus)
         {
+            ValidateReadStatusParams(readStatus);
+
+            if (_context.ReadStatus.Any(x => x.ChapterId == readStatus.ChapterId && x.UserId == readStatus.UserId && x.Status == readStatus.Status))
+                throw new AppException("ReadStatus data already exists.");
+
             _context.ReadStatus.Add(readStatus);
             _context.SaveChanges();
 
@@ -64,7 +69,20 @@ namespace WebApi.Services
         }
 
         // private helper methods
+        private static void ValidateReadStatusParams(ReadStatus readStatus) {
+            if (readStatus.ChapterId == 0)
+                throw new AppException("ChapterId is required.");
 
+            if (readStatus.UserId == 0)
+                throw new AppException("UserId is required.");
+
+            if (string.IsNullOrWhiteSpace(readStatus.Status))
+                throw new AppException("Status is required.");
+
+            string[] validStatusArray = { "ENABLED", "DISABLED", "IN PROGRESS" };
+            if (!validStatusArray.Contains(readStatus.Status.ToUpper()))
+                throw new AppException("Status must be in ['ENABLED', 'DISABLED', 'IN PROGRESS' ]");
+        }
 
     }
 }

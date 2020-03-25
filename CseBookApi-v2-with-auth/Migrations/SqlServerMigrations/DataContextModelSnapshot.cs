@@ -51,6 +51,27 @@ namespace WebApi.Migrations.SqlServerMigrations
 
                     b.ToTable("Users");
                 });
+
+            modelBuilder.Entity("WebApi.Entities.ReadStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ChapterId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ReadStatus");
+                });
 #pragma warning restore 612, 618
         }
     }

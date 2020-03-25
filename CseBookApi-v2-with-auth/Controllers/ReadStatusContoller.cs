@@ -37,14 +37,14 @@ namespace WebApi.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult CreateReadStatus([FromForm]CreateModel model)
+        public IActionResult CreateReadStatus([FromBody]CreateModel model)
         {
             // map model to entity
             var readStatus = _mapper.Map<ReadStatus>(model);
 
             try
             {
-                // create user
+                // create read status
                 _readStatusService.Create(readStatus);
                 return Ok("Successfully saved read status.");
             }

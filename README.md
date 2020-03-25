@@ -40,10 +40,11 @@
   - Chapter
     - ???
   - ReadStatus:
-    - POST read_status
-    - PUT read_status/{id}
-    - GET read_status
-    - GET read_status/{id}
+    - POST readstatus ------> working :)
+    - PUT readstatus/{id}
+    - GET readstatus
+    - GET readstatus/{id}
+    - DELETE readstatus/{id}
   - Question
     - ???
   - UserAnswer:
