@@ -45,7 +45,7 @@ namespace WebApi.Migrations.SqliteMigrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("User");
                 });
 
             modelBuilder.Entity("WebApi.Entities.ReadStatus", b =>
