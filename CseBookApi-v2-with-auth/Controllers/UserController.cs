@@ -36,7 +36,7 @@ namespace WebApi.Controllers
 
         [AllowAnonymous]
         [HttpPost("authenticate")]
-        public IActionResult Authenticate([FromBody]AuthenticateModel model)
+        public IActionResult Authenticate([FromBody]AuthUserModel model)
         {
             var user = _userService.Authenticate(model.Username, model.Password);
 
@@ -72,7 +72,7 @@ namespace WebApi.Controllers
 
         [AllowAnonymous]
         [HttpPost("register")]
-        public IActionResult Register([FromBody]RegisterModel model)
+        public IActionResult Register([FromBody]RegisterUserModel model)
         {
             // map model to entity
             var user = _mapper.Map<User>(model);
@@ -81,7 +81,10 @@ namespace WebApi.Controllers
             {
                 // create user
                 _userService.Create(user, model.Password);
-                return Ok();
+                return Ok(new {
+                    data = user,
+                    message = "Successfully registered user."
+                });
             }
             catch (AppException ex)
             {
@@ -107,7 +110,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody]UpdateModel model)
+        public IActionResult Update(int id, [FromBody]UpdateUserModel model)
         {
             // map model to entity and set id
             var user = _mapper.Map<User>(model);
@@ -117,7 +120,10 @@ namespace WebApi.Controllers
             {
                 // update user 
                 _userService.Update(user, model.Password);
-                return Ok();
+                return Ok(new {
+                    data = user,
+                    message = "Successfully updated user."
+                });
             }
             catch (AppException ex)
             {
@@ -130,7 +136,9 @@ namespace WebApi.Controllers
         public IActionResult Delete(int id)
         {
             _userService.Delete(id);
-            return Ok();
+            return Ok(new {
+                message = "Successfully deleted user."
+            });
         }
     }
 }

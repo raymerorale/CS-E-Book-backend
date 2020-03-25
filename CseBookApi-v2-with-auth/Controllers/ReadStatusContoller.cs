@@ -37,7 +37,7 @@ namespace WebApi.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult CreateReadStatus([FromBody]CreateModel model)
+        public IActionResult CreateReadStatus([FromBody]CreateReadStatusModel model)
         {
             // map model to entity
             var readStatus = _mapper.Map<ReadStatus>(model);
@@ -46,7 +46,10 @@ namespace WebApi.Controllers
             {
                 // create read status
                 _readStatusService.Create(readStatus);
-                return Ok("Successfully saved read status.");
+                return Ok(new {
+                    data = readStatus,
+                    message = "Successfully saved read status."
+                });
             }
             catch (AppException ex)
             {
@@ -55,29 +58,54 @@ namespace WebApi.Controllers
             }
         }
 
-        [AllowAnonymous]
-        [HttpPut("{id}")]
-        public IActionResult UpdateReadStatus()
-        {
-            return Ok("Successfully updated read status.");
-        }
-
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Ok();
+            var readStatus = _readStatusService.GetAll();
+            var model = _mapper.Map<IList<ReadStatusModel>>(readStatus);
+            return Ok(model);
         }
 
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            return Ok();
+            var readStatus = _readStatusService.GetById(id);
+            var model = _mapper.Map<ReadStatusModel>(readStatus);
+            return Ok(model);
+        }
+
+        [AllowAnonymous]
+
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, [FromBody]UpdateReadStatusModel model)
+        {
+            // map model to entity and set id
+            var readStatus = _mapper.Map<ReadStatus>(model);
+            readStatus.Id = id;
+
+            try
+            {
+                // update read status 
+                _readStatusService.Update(readStatus);
+                return Ok(new {
+                    data = readStatus,
+                    message = "Successfully updated read status."
+                });
+            }
+            catch (AppException ex)
+            {
+                // return error message if there was an exception
+                return BadRequest(new { message = ex.Message });
+            }
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            return Ok("Successfully deleted read status.");
+            _readStatusService.Delete(id);
+            return Ok(new {
+                message = "Successfully deleted read status."
+            });
         }
     }
 }

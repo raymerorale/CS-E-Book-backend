@@ -30,7 +30,7 @@ namespace WebApi.Services
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
                 return null;
 
-            var user = _context.Users.SingleOrDefault(x => x.Username == username);
+            var user = _context.User.SingleOrDefault(x => x.Username == username);
 
             // check if username exists
             if (user == null)
@@ -50,12 +50,12 @@ namespace WebApi.Services
 
         public IEnumerable<User> GetAll()
         {
-            return _context.Users;
+            return _context.User;
         }
 
         public User GetById(int id)
         {
-            return _context.Users.Find(id);
+            return _context.User.Find(id);
         }
 
         public User Create(User user, string password)
@@ -64,7 +64,7 @@ namespace WebApi.Services
             if (string.IsNullOrWhiteSpace(password))
                 throw new AppException("Password is required");
 
-            if (_context.Users.Any(x => x.Username == user.Username))
+            if (_context.User.Any(x => x.Username == user.Username))
                 throw new AppException("Username \"" + user.Username + "\" is already taken");
 
             // user.GradeLevel = user.GradeLevel;
@@ -76,7 +76,7 @@ namespace WebApi.Services
             user.PasswordHash = passwordHash;
             user.PasswordSalt = passwordSalt;
 
-            _context.Users.Add(user);
+            _context.User.Add(user);
             _context.SaveChanges();
 
             return user;
@@ -84,7 +84,7 @@ namespace WebApi.Services
 
         public void Update(User userParam, string password = null)
         {
-            var user = _context.Users.Find(userParam.Id);
+            var user = _context.User.Find(userParam.Id);
 
             if (user == null)
                 throw new AppException("User not found");
@@ -93,7 +93,7 @@ namespace WebApi.Services
             if (!string.IsNullOrWhiteSpace(userParam.Username) && userParam.Username != user.Username)
             {
                 // throw error if the new username is already taken
-                if (_context.Users.Any(x => x.Username == userParam.Username))
+                if (_context.User.Any(x => x.Username == userParam.Username))
                     throw new AppException("Username " + userParam.Username + " is already taken");
 
                 user.Username = userParam.Username;
@@ -122,16 +122,16 @@ namespace WebApi.Services
                 user.PasswordSalt = passwordSalt;
             }
 
-            _context.Users.Update(user);
+            _context.User.Update(user);
             _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            var user = _context.Users.Find(id);
+            var user = _context.User.Find(id);
             if (user != null)
             {
-                _context.Users.Remove(user);
+                _context.User.Remove(user);
                 _context.SaveChanges();
             }
         }

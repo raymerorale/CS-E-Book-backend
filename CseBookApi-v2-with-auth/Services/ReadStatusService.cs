@@ -54,6 +54,8 @@ namespace WebApi.Services
             if (readStatus == null)
                 throw new AppException("Read Status not found");
 
+            ValidateReadStatusParams(readStatusParam);    
+
             _context.ReadStatus.Update(readStatus);
             _context.SaveChanges();
         }

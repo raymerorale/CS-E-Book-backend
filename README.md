@@ -30,21 +30,21 @@
 
 - Apply correct error response code
 - Endpoints:
-  - User:  (Needs polishing, and applying correct response code)
-    - POST user/authenticate
-    - POST user/register
-    - GET user/{id}
-    - PUT user/{id}
-    - DELETE user/{id}
-    - POST user/logout
+  - User:  (DONE, Needs polishing and applying correct response code)
+    - POST user/authenticate ------> working :)
+    - POST user/register ------> working :)
+    - GET user/{id} ------> working :)
+    - PUT user/{id} ------> working :)
+    - DELETE user/{id} ------> working :)
+    - POST user/logout ------> working :)
   - Chapter
     - ???
-  - ReadStatus:
+  - ReadStatus: (DONE, needs polishing and applying correct response code)
     - POST readstatus ------> working :)
-    - PUT readstatus/{id}
-    - GET readstatus
-    - GET readstatus/{id}
-    - DELETE readstatus/{id}
+    - PUT readstatus/{id} ------> working :)
+    - GET readstatus ------> working :)
+    - GET readstatus/{id} ------> working :)
+    - DELETE readstatus/{id} ------> working :)
   - Question
     - ???
   - UserAnswer:

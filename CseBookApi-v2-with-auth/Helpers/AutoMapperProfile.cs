@@ -10,10 +10,12 @@ namespace WebApi.Helpers
         public AutoMapperProfile()
         {
             CreateMap<User, UserModel>();
-            CreateMap<RegisterModel, User>();
-            CreateMap<UpdateModel, User>();
+            CreateMap<RegisterUserModel, User>();
+            CreateMap<UpdateUserModel, User>();
             CreateMap<ReadStatus, ReadStatusModel>();
-            CreateMap<CreateModel, ReadStatus>();
+            CreateMap<CreateReadStatusModel, ReadStatus>();
+            CreateMap<UpdateReadStatusModel, ReadStatus>();
+
         }
     }
 }
