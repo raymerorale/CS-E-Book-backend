@@ -25,12 +25,29 @@ namespace WebApi.Migrations.SqliteMigrations
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "ReadStatus",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ChapterId = table.Column<int>(nullable: true),
+                    UserId = table.Column<int>(nullable: true),
+                    Status = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ReadStatus", x => x.Id);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Users");
+            migrationBuilder.DropTable(
+                name: "ReadStatus");
         }
     }
 }

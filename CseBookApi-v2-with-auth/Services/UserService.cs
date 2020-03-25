@@ -67,8 +67,8 @@ namespace WebApi.Services
             if (_context.Users.Any(x => x.Username == user.Username))
                 throw new AppException("Username \"" + user.Username + "\" is already taken");
 
-            user.GradeLevel = user.GradeLevel;
-            user.Course = user.Course;
+            // user.GradeLevel = user.GradeLevel;
+            // user.Course = user.Course;
 
             byte[] passwordHash, passwordSalt;
             CreatePasswordHash(password, out passwordHash, out passwordSalt);
