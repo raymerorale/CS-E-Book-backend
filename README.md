@@ -47,7 +47,7 @@
     - DELETE readstatus/{id} ------> working :)
   - Question
     - ???
-  - **Answer: (DONE, needs polishing and applying correct response code, SEND TO TEACHER NOT YET IMPLEMENTED)**
+  - **Answer: (DONE, needs polishing and applying correct response code, 'SEND TO TEACHER' AND 'CHECKING CORRECTNESS OF ANSWER' NOT YET IMPLEMENTED)**
     - POST answer/{answer_id} ------> working :)
     - PUT answer/{answer_id} ------> working :)
     - GET answer ------> working :)
