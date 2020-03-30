@@ -27,7 +27,7 @@ namespace WebApi.Migrations.SqlServerMigrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ReadStatus",
+                name: "UserChapter",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -38,7 +38,7 @@ namespace WebApi.Migrations.SqlServerMigrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ReadStatus", x => x.Id);
+                    table.PrimaryKey("PK_UserChapter", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -63,7 +63,7 @@ namespace WebApi.Migrations.SqlServerMigrations
             migrationBuilder.DropTable(
                 name: "User");
             migrationBuilder.DropTable(
-                name: "ReadStatus");
+                name: "UserChapter");
             migrationBuilder.DropTable(
                 name: "Answer");
         }

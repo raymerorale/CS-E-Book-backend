@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace WebApi.Models.ReadStatus
+namespace WebApi.Models.UserChapter
 {
-    public class CreateReadStatusModel
+    public class CreateUserChapterModel
     {
         [Required]
         public int ChapterId { get; set; }

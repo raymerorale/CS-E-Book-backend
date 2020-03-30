@@ -11,44 +11,44 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using WebApi.Services;
 using WebApi.Entities;
-using WebApi.Models.ReadStatus;
+using WebApi.Models.UserChapter;
 
 namespace WebApi.Controllers
 {
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class ReadStatusController : ControllerBase
+    public class UserChapterController : ControllerBase
     {
-        private IReadStatusService _readStatusService;
+        private IUserChapterService _userChapterService;
 
         private IMapper _mapper;
         private readonly AppSettings _appSettings;
 
-        public ReadStatusController(
-            IReadStatusService readStatusService,
+        public UserChapterController(
+            IUserChapterService userChapterService,
             IMapper mapper,
             IOptions<AppSettings> appSettings)
         {
-            _readStatusService = readStatusService;
+            _userChapterService = userChapterService;
             _mapper = mapper;
             _appSettings = appSettings.Value;
         }
 
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult CreateReadStatus([FromBody]CreateReadStatusModel model)
+        public IActionResult CreateUserChapter([FromBody]CreateUserChapterModel model)
         {
             // map model to entity
-            var readStatus = _mapper.Map<ReadStatus>(model);
+            var userChapter = _mapper.Map<UserChapter>(model);
 
             try
             {
-                // create read status
-                _readStatusService.Create(readStatus);
+                // create user chapter
+                _userChapterService.Create(userChapter);
                 return Ok(new {
-                    data = readStatus,
-                    message = "Successfully saved read status."
+                    data = userChapter,
+                    message = "Successfully saved user chapter."
                 });
             }
             catch (AppException ex)
@@ -61,35 +61,35 @@ namespace WebApi.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var readStatus = _readStatusService.GetAll();
-            var model = _mapper.Map<IList<ReadStatusModel>>(readStatus);
+            var userChapter = _userChapterService.GetAll();
+            var model = _mapper.Map<IList<UserChapter>>(userChapter);
             return Ok(model);
         }
 
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            var readStatus = _readStatusService.GetById(id);
-            var model = _mapper.Map<ReadStatusModel>(readStatus);
+            var userChapter = _userChapterService.GetById(id);
+            var model = _mapper.Map<UserChapter>(userChapter);
             return Ok(model);
         }
 
         [AllowAnonymous]
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody]UpdateReadStatusModel model)
+        public IActionResult Update(int id, [FromBody]UpdateUserChapterModel model)
         {
             // map model to entity and set id
-            var readStatus = _mapper.Map<ReadStatus>(model);
-            readStatus.Id = id;
+            var userChapter = _mapper.Map<UserChapter>(model);
+            userChapter.Id = id;
 
             try
             {
-                // update read status 
-                _readStatusService.Update(readStatus);
+                // update user chapter 
+                _userChapterService.Update(userChapter);
                 return Ok(new {
-                    data = readStatus,
-                    message = "Successfully updated read status."
+                    data = userChapter,
+                    message = "Successfully updated user chapter."
                 });
             }
             catch (AppException ex)
@@ -102,9 +102,9 @@ namespace WebApi.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _readStatusService.Delete(id);
+            _userChapterService.Delete(id);
             return Ok(new {
-                message = "Successfully deleted read status."
+                message = "Successfully deleted user chapter."
             });
         }
     }

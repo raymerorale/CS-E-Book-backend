@@ -48,7 +48,7 @@ namespace WebApi.Migrations.SqliteMigrations
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("WebApi.Entities.ReadStatus", b =>
+            modelBuilder.Entity("WebApi.Entities.UserChapter", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -65,7 +65,7 @@ namespace WebApi.Migrations.SqliteMigrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ReadStatus");
+                    b.ToTable("UserChapter");
                 });
 
             modelBuilder.Entity("WebApi.Entities.Answer", b =>

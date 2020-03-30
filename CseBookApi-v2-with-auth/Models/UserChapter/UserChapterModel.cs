@@ -1,6 +1,6 @@
-namespace WebApi.Models.ReadStatus
+namespace WebApi.Models.UserChapter
 {
-  public class ReadStatusModel
+  public class UserChapterModel
     {
         public int Id { get; set; }
         public int ChapterId { get; set; }

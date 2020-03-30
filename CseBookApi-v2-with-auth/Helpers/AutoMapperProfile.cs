@@ -1,7 +1,7 @@
 using AutoMapper;
 using WebApi.Entities;
 using WebApi.Models.Users;
-using WebApi.Models.ReadStatus;
+using WebApi.Models.UserChapter;
 using WebApi.Models.Answer;
 
 namespace WebApi.Helpers
@@ -15,10 +15,10 @@ namespace WebApi.Helpers
             CreateMap<RegisterUserModel, User>();
             CreateMap<UpdateUserModel, User>();
 
-            // Read Status
-            CreateMap<ReadStatus, ReadStatusModel>();
-            CreateMap<CreateReadStatusModel, ReadStatus>();
-            CreateMap<UpdateReadStatusModel, ReadStatus>();
+            // User Chapter
+            CreateMap<UserChapter, UserChapterModel>();
+            CreateMap<CreateUserChapterModel, UserChapter>();
+            CreateMap<UpdateUserChapterModel, UserChapter>();
 
             // User Answer
             CreateMap<Answer, AnswerModel>();

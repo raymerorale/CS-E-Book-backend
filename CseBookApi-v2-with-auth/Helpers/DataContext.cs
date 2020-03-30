@@ -20,7 +20,7 @@ namespace WebApi.Helpers
         }
 
         public DbSet<User> User { get; set; }
-        public DbSet<ReadStatus> ReadStatus { get; set; }
+        public DbSet<UserChapter> UserChapter { get; set; }
         public DbSet<Answer> Answer { get; set; }
     }
 }
