@@ -10,8 +10,10 @@ namespace WebApi.Services
     {
         IEnumerable<UserChapter> GetAll();
         UserChapter GetById(int id);
+        IEnumerable<UserChapter> GetByUserId(int userId);
         UserChapter Create(UserChapter userChapter);
         void Update(UserChapter userChapter);
+        UserChapter UpdateByUserIdAndChapterId(UserChapter userChapter);
         void Delete(int id);
     }
 
@@ -32,6 +34,11 @@ namespace WebApi.Services
         public UserChapter GetById(int id)
         {
             return _context.UserChapter.Find(id);
+        }
+
+        public IEnumerable<UserChapter> GetByUserId(int userId)
+        {
+            return _context.UserChapter.Where(x => x.UserId == userId);
         }
 
         public UserChapter Create(UserChapter userChapter)
@@ -60,6 +67,21 @@ namespace WebApi.Services
             _context.SaveChanges();
         }
 
+        public UserChapter UpdateByUserIdAndChapterId(UserChapter userChapterParam)
+        {
+            var userChapter = _context.UserChapter.FirstOrDefault(x => x.UserId == userChapterParam.UserId && x.ChapterId == userChapterParam.ChapterId);
+
+            if (userChapter == null)
+                throw new AppException("User Chapter not found");
+
+            ValidateUserChapterParams(userChapterParam); 
+            userChapter.Status = userChapterParam.Status;
+
+            _context.UserChapter.Update(userChapter);
+            _context.SaveChanges();
+
+            return userChapter;
+        }
         public void Delete(int id)
         {
             var userChapter = _context.UserChapter.Find(id);

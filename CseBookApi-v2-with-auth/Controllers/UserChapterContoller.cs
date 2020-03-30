@@ -70,7 +70,15 @@ namespace WebApi.Controllers
         public IActionResult GetById(int id)
         {
             var userChapter = _userChapterService.GetById(id);
-            var model = _mapper.Map<UserChapter>(userChapter);
+            var model = _mapper.Map<UserChapterModel>(userChapter);
+            return Ok(model);
+        }
+
+        [HttpGet("user/{userId}")]
+        public IActionResult GetByUserId(int userId)
+        {
+            var userChapter = _userChapterService.GetByUserId(userId);
+            var model = _mapper.Map<IList<UserChapterModel>>(userChapter);
             return Ok(model);
         }
 
@@ -85,10 +93,34 @@ namespace WebApi.Controllers
 
             try
             {
-                // update user chapter 
+                // update user chapter
                 _userChapterService.Update(userChapter);
                 return Ok(new {
                     data = userChapter,
+                    message = "Successfully updated user chapter."
+                });
+            }
+            catch (AppException ex)
+            {
+                // return error message if there was an exception
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+
+        [HttpPut("user/{userId}/chapter/{chapterId}")]
+        public IActionResult UpdateByUserIdAndChapterId(int userId, int chapterId, [FromBody]UpdateUserChapterModel model)
+        {
+            // map model to entity and set id
+            var userChapter = _mapper.Map<UserChapter>(model);
+            userChapter.UserId = userId;
+            userChapter.ChapterId = chapterId;
+
+            try
+            {
+                // update user chapter
+                var updatedUserChapter = _userChapterService.UpdateByUserIdAndChapterId(userChapter);
+                return Ok(new {
+                    data = updatedUserChapter,
                     message = "Successfully updated user chapter."
                 });
             }
