@@ -33,18 +33,20 @@
   - **User:  (DONE, Needs polishing and applying correct response code)**
     - POST user/authenticate ------> working :)
     - POST user/register ------> working :)
+    - GET user
     - GET user/{id} ------> working :)
     - PUT user/{id} ------> working :)
-    - DELETE user/{id} ------> working :)
-    - POST user/logout ------> working :)
+    - DEL user/{id} ------> working :)
   - Chapter
     - ???
-  - **ReadStatus: (DONE, needs polishing and applying correct response code)**
-    - POST readstatus ------> working :)
-    - PUT readstatus/{id} ------> working :)
-    - GET readstatus ------> working :)
-    - GET readstatus/{id} ------> working :)
-    - DELETE readstatus/{id} ------> working :)
+  - **UserChapter: (DONE, needs polishing and applying correct response code)**
+    - GET userchapter ------> working :)
+    - GET userchapter/{id} ------> working :)
+    - GET userchapter/user/{userId} ------> working :)
+    - POST userchapter ------> working :)
+    - PUT userchapter/{id} ------> working :)
+    - PUT userchapter/user/{userId}/chapter/{chapterId} ------> working :)
+    - DEL userchapter/{id} ------> working :)
   - Question
     - ???
   - **Answer: (DONE, needs polishing and applying correct response code, 'SEND TO TEACHER' AND 'CHECKING CORRECTNESS OF ANSWER' NOT YET IMPLEMENTED)**
