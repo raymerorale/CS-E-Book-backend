@@ -54,6 +54,21 @@ namespace WebApi.Migrations.SqlServerMigrations
                     b.ToTable("User");
                 });
 
+            modelBuilder.Entity("WebApi.Entities.Chapter", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Chapter");
+                });
+
             modelBuilder.Entity("WebApi.Entities.UserChapter", b =>
                 {
                     b.Property<int>("Id")

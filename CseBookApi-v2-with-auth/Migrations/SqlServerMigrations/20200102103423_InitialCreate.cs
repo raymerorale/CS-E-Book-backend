@@ -27,6 +27,19 @@ namespace WebApi.Migrations.SqlServerMigrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Chapter",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Content = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Chapter", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserChapter",
                 columns: table => new
                 {
@@ -62,6 +75,8 @@ namespace WebApi.Migrations.SqlServerMigrations
         {
             migrationBuilder.DropTable(
                 name: "User");
+            migrationBuilder.DropTable(
+                name: "Chapter");
             migrationBuilder.DropTable(
                 name: "UserChapter");
             migrationBuilder.DropTable(

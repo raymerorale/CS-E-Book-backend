@@ -27,6 +27,19 @@ namespace WebApi.Migrations.SqliteMigrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Chapter",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Content = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Chapter", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserChapter",
                 columns: table => new
                 {
@@ -62,6 +75,8 @@ namespace WebApi.Migrations.SqliteMigrations
         {
             migrationBuilder.DropTable(
                 name: "User");
+            migrationBuilder.DropTable(
+                name: "Chapter");
             migrationBuilder.DropTable(
                 name: "UserChapter");
             migrationBuilder.DropTable(

@@ -50,6 +50,20 @@ namespace WebApi.Migrations.SqliteMigrations
                     b.ToTable("User");
                 });
 
+            modelBuilder.Entity("WebApi.Entities.Chapter", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Chapter");
+                });
+
             modelBuilder.Entity("WebApi.Entities.UserChapter", b =>
                 {
                     b.Property<int>("Id")
