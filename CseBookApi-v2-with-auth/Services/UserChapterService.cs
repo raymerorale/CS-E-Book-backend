@@ -14,6 +14,7 @@ namespace WebApi.Services
         UserChapter Create(UserChapter userChapter);
         void Update(UserChapter userChapter);
         UserChapter UpdateByUserIdAndChapterId(UserChapter userChapter);
+        void DeleteAll();
         void Delete(int id);
     }
 
@@ -43,6 +44,8 @@ namespace WebApi.Services
 
         public UserChapter Create(UserChapter userChapter)
         {
+            userChapter.Status = "ENABLED";    
+
             ValidateUserChapterParams(userChapter);
 
             if (_context.UserChapter.Any(x => x.ChapterId == userChapter.ChapterId && x.UserId == userChapter.UserId && x.Status == userChapter.Status))
@@ -90,6 +93,11 @@ namespace WebApi.Services
                 _context.UserChapter.Remove(userChapter);
                 _context.SaveChanges();
             }
+        }
+        public void DeleteAll()
+        {
+            _context.UserChapter.RemoveRange(_context.UserChapter);
+            _context.SaveChanges();
         }
 
         // private helper methods

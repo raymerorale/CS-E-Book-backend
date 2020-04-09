@@ -47,6 +47,7 @@
     - PUT userchapter/{id} ------> working :)
     - PUT userchapter/user/{userId}/chapter/{chapterId} ------> working :)
     - DEL userchapter/{id} ------> working :)
+    - DEL userchapter ------> working :)
   - Question
     - ???
   - **Answer: (DONE, needs polishing and applying correct response code, 'SEND TO TEACHER' AND 'CHECKING CORRECTNESS OF ANSWER' NOT YET IMPLEMENTED)**

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
@@ -78,8 +79,15 @@ namespace WebApi.Controllers
         public IActionResult GetByUserId(int userId)
         {
             var userChapter = _userChapterService.GetByUserId(userId);
-            var model = _mapper.Map<IList<UserChapterModel>>(userChapter);
-            return Ok(model);
+            // var model = _mapper.Map<IList<UserChapterModel>>(userChapter);
+
+            ArrayList userChapterIds = new ArrayList();
+
+            foreach (UserChapter user in userChapter) {
+                userChapterIds.Add(user.ChapterId);
+            }
+
+            return Ok(new{ userChapterIdsEnabled = userChapterIds });
         }
 
         [AllowAnonymous]
@@ -137,6 +145,15 @@ namespace WebApi.Controllers
             _userChapterService.Delete(id);
             return Ok(new {
                 message = "Successfully deleted user chapter."
+            });
+        }
+
+        [HttpDelete()]
+        public IActionResult DeleteAll()
+        {
+            _userChapterService.DeleteAll();
+            return Ok(new {
+                message = "Successfully deleted all chapters."
             });
         }
     }
