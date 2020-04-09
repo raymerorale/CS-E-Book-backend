@@ -10,7 +10,6 @@ namespace WebApi.Models.UserChapter
         [Required]
         public int UserId { get; set; }
 
-        [Required]
         public string Status { get; set; }
     }
 }
